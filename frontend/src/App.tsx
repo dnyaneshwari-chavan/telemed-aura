@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Activity, ArrowDownRight, ArrowRight, Bell, CalendarDays, Check, ChevronDown, Clock3, FileText, HeartPulse, Home, MapPin, Menu, MessageCircle, Plus, Search, ShieldCheck, Sparkles, Stethoscope, Video, X } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL ?? '';
 type Appointment = { id: number; patientName: string; email: string; specialty: string; doctor: string; date: string; time: string; reason: string; status: string };
 type Triage = { level: 'urgent' | 'soon' | 'routine'; guidance: string; disclaimer: string };
 const doctors = [
@@ -30,7 +31,7 @@ export default function App() {
 
   async function loadAppointments() {
     try {
-      const response = await fetch('/api/appointments');
+      const response = await fetch(`${API_BASE_URL}/api/appointments`);
       if (!response.ok) throw new Error();
       setAppointments(await response.json());
     } catch { setToast('Could not connect to the API. Start the app with npm run dev.'); }
@@ -47,7 +48,7 @@ export default function App() {
   async function submitAppointment(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
-      const response = await fetch('/api/appointments', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...form, doctor: doctorForForm }) });
+      const response = await fetch(`${API_BASE_URL}/api/appointments`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...form, doctor: doctorForForm }) });
       const data = await response.json();
 
 if (!response.ok) {
@@ -66,7 +67,7 @@ if (!response.ok) {
   async function checkSymptoms(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault(); setTriageBusy(true); setTriageResult(null);
     try {
-      const response = await fetch('/api/triage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ symptoms: selectedSymptoms, duration }) });
+      const response = await fetch(`${API_BASE_URL}/api/triage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ symptoms: selectedSymptoms, duration }) });
       const data = await response.json(); if (!response.ok) throw new Error(data.error ?? 'Unable to check symptoms.');
       setTriageResult(data);
     } catch (error) { setToast(error instanceof Error ? error.message : 'Unable to check symptoms.'); }
@@ -118,3 +119,4 @@ if (!response.ok) {
     {toast && <div className="toast"><span className="toast-check"><Check size={14} /></span>{toast}<button aria-label="Dismiss" onClick={() => setToast('')}><X size={15} /></button></div>}
   </div>;
 }
+
