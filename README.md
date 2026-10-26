@@ -1,5 +1,5 @@
 # Telemed Aura
-![Telemed Aura dashboard](dashboard.png)
+![Telemed Aura dashboard](frontend/dashboard.png)
 A full-stack telehealth appointment demo with a patient dashboard, clinician listings, appointment booking, and rules-based symptom guidance.
 
 ## Features
