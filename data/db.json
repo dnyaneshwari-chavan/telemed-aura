@@ -1,0 +1,28 @@
+{
+  "doctors": [
+    {"id":"D-101","name":"Dr. Aanya Mehta","specialty":"Cardiology","experience":"12 years","rating":4.9,"availability":"Available","color":"violet"},
+    {"id":"D-102","name":"Dr. Rohan Kulkarni","specialty":"Neurology","experience":"9 years","rating":4.8,"availability":"In consultation","color":"blue"},
+    {"id":"D-103","name":"Dr. Sara Khan","specialty":"Dermatology","experience":"7 years","rating":4.9,"availability":"Available","color":"pink"},
+    {"id":"D-104","name":"Dr. Arjun Desai","specialty":"General Medicine","experience":"15 years","rating":4.7,"availability":"Available","color":"green"}
+  ],
+  "patients": [
+    {"id":"P-2041","name":"Maya Sharma","age":29,"gender":"Female","email":"maya.sharma@example.com","phone":"+91 98765 12041","condition":"Migraine","lastVisit":"2026-10-24","status":"Active"},
+    {"id":"P-2042","name":"Ishaan Patil","age":42,"gender":"Male","email":"ishaan.patil@example.com","phone":"+91 98765 12042","condition":"Hypertension","lastVisit":"2026-10-23","status":"Active"},
+    {"id":"P-2043","name":"Anika Rao","age":35,"gender":"Female","email":"anika.rao@example.com","phone":"+91 98765 12043","condition":"Skin allergy","lastVisit":"2026-10-22","status":"Active"},
+    {"id":"P-2044","name":"Kabir Joshi","age":51,"gender":"Male","email":"kabir.joshi@example.com","phone":"+91 98765 12044","condition":"Diabetes Type 2","lastVisit":"2026-10-18","status":"Follow-up"},
+    {"id":"P-2045","name":"Diya Nair","age":24,"gender":"Female","email":"diya.nair@example.com","phone":"+91 98765 12045","condition":"Annual check-up","lastVisit":"2026-10-16","status":"Active"}
+  ],
+  "appointments": [
+    {"id":"APT-3101","patient":"Maya Sharma","doctor":"Dr. Aanya Mehta","specialty":"Cardiology","date":"2026-10-28","time":"09:30","type":"Video consultation","status":"Confirmed","note":"Routine heart health review"},
+    {"id":"APT-3102","patient":"Ishaan Patil","doctor":"Dr. Rohan Kulkarni","specialty":"Neurology","date":"2026-10-28","time":"10:00","type":"In-person visit","status":"Pending","note":"Recurring headache follow-up"},
+    {"id":"APT-3103","patient":"Anika Rao","doctor":"Dr. Sara Khan","specialty":"Dermatology","date":"2026-10-28","time":"11:30","type":"Video consultation","status":"Confirmed","note":"Skin allergy review"},
+    {"id":"APT-3104","patient":"Kabir Joshi","doctor":"Dr. Arjun Desai","specialty":"General Medicine","date":"2026-10-29","time":"12:00","type":"In-person visit","status":"Pending","note":"Quarterly diabetes check"},
+    {"id":"APT-3105","patient":"Diya Nair","doctor":"Dr. Aanya Mehta","specialty":"Cardiology","date":"2026-10-29","time":"14:00","type":"Video consultation","status":"Cancelled","note":"Rescheduled by patient"}
+  ],
+  "activity": [
+    {"id":"ACT-1","title":"Appointment confirmed","detail":"Maya Sharma · Cardiology","time":"10 min ago","kind":"check"},
+    {"id":"ACT-2","title":"New patient registered","detail":"Diya Nair · Patient P-2045","time":"32 min ago","kind":"user"},
+    {"id":"ACT-3","title":"Consultation completed","detail":"Dr. Sara Khan · Dermatology","time":"1 hour ago","kind":"video"},
+    {"id":"ACT-4","title":"Follow-up reminder sent","detail":"Kabir Joshi · General Medicine","time":"2 hours ago","kind":"bell"}
+  ]
+}
